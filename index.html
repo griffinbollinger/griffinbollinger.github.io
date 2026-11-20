@@ -90,6 +90,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
+      overflow-x: hidden;
       font-family: var(--font);
       font-size: 1rem;
       line-height: 1.7;
@@ -211,6 +212,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
@@ -380,7 +382,8 @@
       font-weight: 600;
       color: var(--text);
       margin-bottom: 32px;
-      white-space: nowrap;
+      white-space: normal;
+      text-align: center;
     }
 
     .hero-status .dot {
@@ -951,6 +954,12 @@
         text-align: center;
       }
 
+      .hero-status {
+        white-space: normal;
+        justify-content: center;
+        text-align: center;
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -1064,7 +1073,6 @@
             Combining accounting expertise, financial systems,
             automation, analytics, and AI solutions to modernize
             how organizations operate and make decisions.
-          </p>
           </p>
 
           <div class="hero-actions">
