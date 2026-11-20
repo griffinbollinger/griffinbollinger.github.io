@@ -349,7 +349,7 @@
         0 30px 90px var(--shadow-glow);
     }
 
-    @@media (max-width: 980px) {
+    @media (max-width: 980px) {
       .hero-inner {
         grid-template-columns: 1fr;
       }
@@ -903,6 +903,51 @@
 
     @media (max-width: 680px) {
 
+      .site-header {
+  position: relative;
+  height: auto;
+}
+
+.container {
+    padding: 0 18px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  text-align: left;
+}
+
+.hero-title {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.hero-content {
+  text-align: left;
+}
+
+.hero-bio {
+  text-align: left;
+  font-size: 1rem;
+  max-width: 100%;
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-photo {
+  order: 99;
+  margin-top: 32px;
+}
+
+.header-inner {
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 0;
+}
+
       .section {
         padding: 72px 0;
       }
@@ -935,9 +980,8 @@
       }
 
       .brand span.brand-name {
-        display: inline;
-        font-size: .95rem;
-      }
+  display: none;
+}
 
       .nav-links {
         gap: 0;
@@ -966,11 +1010,8 @@
       }
 
       .hero-status {
-        white-space: normal;
-        justify-content: center;
-        text-align: center;
-        max-width: 100%;
-      }
+  display: none;
+}
 
       .hero-photo img {
         max-width: 300px;
