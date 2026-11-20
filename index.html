@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Griffin Bollinger | Financial Systems &amp; Business Analyst</title>
+  <meta name="description"
+    content="Griffin is a Financial Systems Analyst and Business Analyst specializing in SQL, PowerShell, BI reporting, ERP data, and workflow automation.">
+  <meta name="theme-color" content="#17181c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+
+      /* =========================
+   CORE COLORS
+========================= */
+
+      --bg: #12151b;
+
+      --surface: #1c2129;
+      --surface-2: #252c36;
+
+      --border: #3b4350;
+
+      --heading: #ffffff;
+      --text: #c8d0dc;
+      --muted: #9ca8b8;
+
+
+      /* =========================
+   EXECUTIVE BLUE & SILVER
+========================= */
+
+      --primary: #2b67b2;
+      --primary-hover: #3d7acc;
+
+      --primary-light: #9cbbe3;
+      --primary-bright: #79b3ff;
+
+
+      /* =========================
+   EFFECTS
+========================= */
+
+      --tint: rgba(43, 103, 178, .14);
+
+      --glow: rgba(43, 103, 178, .30);
+
+      --glow-soft: rgba(43, 103, 178, .16);
+
+      --shadow-glow: rgba(43, 103, 178, .25);
+
+
+      /* =========================
+   LAYOUT
+========================= */
+
+      --radius: 14px;
+      --max: 1120px;
+      --header-h: 68px;
+
+      --font:
+        "Manrope",
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-h) + 16px);
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--heading);
+      margin: 0;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .icon {
+      width: 1.1em;
+      height: 1.1em;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--primary-light);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-head {
+      margin-bottom: 48px;
+      max-width: 620px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      font-weight: 800;
+    }
+
+    .section-head p {
+      margin-top: 14px;
+      color: var(--muted);
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--header-h);
+      background: rgba(23, 24, 28, 0.82);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--heading);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg,
+          var(--primary),
+          var(--primary-light));
+      display: grid;
+      place-items: center;
+      font-size: 0.95rem;
+      color: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--heading);
+      background: var(--surface-2);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      border-color: var(--border);
+      color: var(--heading);
+      background: transparent;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--primary);
+      background: var(--tint);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 120px 0 104px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -250px;
+      right: -120px;
+      width: 850px;
+      height: 850px;
+
+      background:
+        radial-gradient(circle,
+          var(--glow) 0%,
+          var(--glow-soft) 40%,
+          transparent 75%);
+
+      filter: blur(20px);
+      pointer-events: none;
+
+      animation: pulseGlow 8s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: .85;
+      }
+
+      50% {
+        transform: scale(1.08);
+        opacity: 1;
+      }
+
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-photo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      max-width: 380px;
+      height: 460px;
+      object-fit: cover;
+      object-position: center top;
+
+      border-radius: 24px;
+      border: 1px solid var(--border);
+
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+
+      transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .hero-photo img:hover {
+      transform: translateY(-6px);
+
+      box-shadow:
+        0 30px 90px var(--shadow-glow);
+    }
+
+    @media (max-width: 980px) {
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-photo {
+        order: -1;
+      }
+
+      .hero-bio {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+    }
+
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 16px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 32px;
+      white-space: nowrap;
+    }
+
+    .hero-status .dot {
+
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+
+      background: #79b3ff;
+
+      animation: pulseDot 1.8s ease-in-out infinite;
+
+    }
+
+    @keyframes pulseDot {
+
+      0% {
+
+        transform: scale(1);
+
+        box-shadow:
+          0 0 0 0 rgba(121, 179, 255, .7);
+
+      }
+
+      70% {
+
+        transform: scale(1.15);
+
+        box-shadow:
+          0 0 0 10px rgba(121, 179, 255, 0);
+
+      }
+
+      100% {
+
+        transform: scale(1);
+
+        box-shadow:
+          0 0 0 0 rgba(121, 179, 255, 0);
+
+      }
+
+    }
+
+    .hero h1 {
+      font-size: clamp(3.2rem, 8vw, 6rem);
+
+      background:
+        linear-gradient(135deg,
+          var(--heading),
+          var(--primary-light),
+          var(--primary));
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 1.08;
+      padding-bottom: 19px;
+    }
+
+    .hero-title {
+      margin-top: 22px;
+      font-size: clamp(1.15rem, 2.6vw, 1.6rem);
+      font-weight: 600;
+      color: var(--primary-light);
+    }
+
+    .hero-bio {
+      margin-top: 28px;
+      max-width: 640px;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .hero-actions {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .about-copy p+p {
+      margin-top: 18px;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .focus-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .focus-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--tint);
+      color: var(--primary-light);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .focus-icon .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .focus-item h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .focus-item p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .metric-number {
+
+      text-align: center;
+
+      font-size: clamp(3rem, 6vw, 4.5rem);
+
+      font-weight: 800;
+
+      margin-bottom: 16px;
+
+      background:
+        linear-gradient(135deg,
+          var(--heading),
+          var(--primary-light),
+          var(--primary));
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+
+      animation: metricGlow 3s ease-in-out infinite;
+    }
+
+    .metric-title {
+
+      color: var(--heading);
+
+      font-size: 1.15rem;
+
+      font-weight: 700;
+
+      text-align: center;
+
+      margin-bottom: 14px;
+
+    }
+
+    @keyframes metricGlow {
+
+      0%,
+      100% {
+        filter:
+          drop-shadow(0 0 0px transparent);
+      }
+
+      50% {
+        filter:
+          drop-shadow(0 0 15px var(--primary));
+      }
+
+    }
+
+    #metrics .card {
+
+      text-align: center;
+
+      justify-content: center;
+
+      min-height: 260px;
+
+    }
+
+    #metrics .card:hover .metric-number {
+
+      transform: scale(1.08);
+
+      filter:
+        drop-shadow(0 0 24px var(--primary));
+
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .card:hover {
+
+      border-color: var(--primary);
+
+      transform:
+        translateY(-8px);
+
+      box-shadow:
+        0 25px 60px var(--shadow-glow);
+
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 26px;
+    }
+
+    .card-tag {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      background: var(--tint);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .card-icon {
+      color: var(--muted);
+    }
+
+    .card-icon .icon {
+      width: 22px;
+      height: 22px;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .card p {
+      color: var(--text);
+      font-size: 0.97rem;
+      flex-grow: 1;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+    }
+
+    .badge {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--heading);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 5px 11px;
+      border-radius: 8px;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      max-width: 820px;
+      padding-left: 36px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), var(--border));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 44px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -36px;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--primary);
+    }
+
+    .timeline-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      margin-bottom: 10px;
+    }
+
+    .timeline-body {
+      padding: 26px 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .timeline-body h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .timeline-org {
+      margin-top: 4px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.97rem;
+    }
+
+    .timeline-body p.scope {
+      margin-top: 14px;
+    }
+
+    /* Contact / footer */
+    .contact {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 88px 0 40px;
+    }
+
+    .contact-inner {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .contact h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+    }
+
+    .contact-inner>p {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .contact-actions {
+      margin-top: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .footer-bar {
+      margin-top: 72px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .social:hover {
+      color: #fff;
+      border-color: var(--primary);
+      background: var(--tint);
+    }
+
+    /* Hero entrance (single orchestrated moment) */
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-inner>* {
+      animation: rise 0.7s ease both;
+    }
+
+    .hero-inner>*:nth-child(2) {
+      animation-delay: 0.08s;
+    }
+
+    .hero-inner>*:nth-child(3) {
+      animation-delay: 0.16s;
+    }
+
+    .hero-inner>*:nth-child(4) {
+      animation-delay: 0.24s;
+    }
+
+    .hero-inner>*:nth-child(5) {
+      animation-delay: 0.32s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .hero-inner>* {
+        animation: none;
+      }
+
+      .card,
+      .btn {
+        transition: none;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+
+      transition:
+        opacity .8s ease,
+        transform .8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+    }
+
+    @media (max-width: 680px) {
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        padding: 80px 0 72px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brand span.brand-name {
+        display: none;
+      }
+
+      .nav-links {
+        gap: 0;
+      }
+
+      .nav-links a {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+      }
+
+      .timeline {
+        padding-left: 30px;
+      }
+
+      .timeline-item::before {
+        left: -30px;
+      }
+
+      .timeline-body {
+        padding: 22px 20px;
+      }
+
+      .footer-bar {
+        justify-content: center;
+        text-align: center;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Lucide icon sprite (inline, no external dependency) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-arrow-right" viewBox="0 0 24 24">
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </symbol>
+    <symbol id="i-file" viewBox="0 0 24 24">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24">
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </symbol>
+    <symbol id="i-database" viewBox="0 0 24 24">
+      <ellipse cx="12" cy="5" rx="9" ry="3" />
+      <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+      <path d="M3 12A9 3 0 0 0 21 12" />
+    </symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24">
+      <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+      <path d="M18 17V9" />
+      <path d="M13 17V5" />
+      <path d="M8 17v-3" />
+    </symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24">
+      <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+      <path d="M21 3v5h-5" />
+      <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+      <path d="M8 16H3v5" />
+    </symbol>
+    <symbol id="i-workflow" viewBox="0 0 24 24">
+      <rect width="8" height="8" x="3" y="3" rx="2" />
+      <path d="M7 11v4a2 2 0 0 0 2 2h4" />
+      <rect width="8" height="8" x="13" y="13" rx="2" />
+    </symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24">
+      <polyline points="4 17 10 11 4 5" />
+      <line x1="12" x2="20" y1="19" y2="19" />
+    </symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24">
+      <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+      <rect width="20" height="14" x="2" y="6" rx="2" />
+    </symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24">
+      <path d="M8 2v4" />
+      <path d="M16 2v4" />
+      <rect width="18" height="18" x="3" y="4" rx="2" />
+      <path d="M3 10h18" />
+    </symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Griffin, back to top">
+        <span class="brand-mark">G</span>
+        <span class="brand-name">Griffin Bollinger</span>
+      </a>
+      <nav aria-label="Primary">
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Portfolio</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero" aria-labelledby="hero-name">
+      <div class="container hero-inner">
+
+        <div class="hero-content">
+
+          <div class="hero-status">
+            <span class="dot"></span>
+            Currently Focused On: AI Agents • Workflow Automation • Financial Analytics Solutions
+          </div>
+
+          <h1 id="hero-name">Griffin Bollinger</h1>
+
+          <p class="hero-title">
+            Financial Systems Analyst • Business Systems Analyst • Process Automation Specialist
+          </p>
+
+          <p class="hero-bio">
+            I specialize in modernizing financial processes by combining
+            accounting expertise, data analytics, automation, and systems
+            development. My focus is not only on completing financial processes
+            accurately, but on improving controls, reducing manual effort,
+            increasing auditability, and building scalable solutions that
+            continue delivering value long after implementation.
+          </p>
+
+          <p class="hero-bio" style="margin-top:18px; color:var(--primary-light);">
+
+            Combining accounting expertise, financial systems,
+            automation, analytics, and AI solutions to modernize
+            how organizations operate and make decisions.
+          </p>
+          </p>
+
+          <div class="hero-actions">
+
+            <a href="#projects" class="btn btn-primary">
+              View My Work
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-arrow-right" />
+              </svg>
+            </a>
+
+            <a href="assets/resume/Griffin_Bollinger_Resume.pdf" class="btn btn-ghost" target="_blank">
+
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-file" />
+              </svg>
+
+              Download Resume
+
+            </a>
+
+            <a href="mailto:griffinb.inbox@gmail.com" class="btn btn-ghost">
+
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-mail" />
+              </svg>
+
+              Get In Touch
+
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="hero-photo">
+
+          <img src="assets/images/griffin_headshot.PNG" alt="Professional headshot">
+
+        </div>
+
+      </div>
+    </section>
+    <section class="section reveal" id="metrics">
+
+      <div class="container">
+
+        <div class="metrics-grid">
+
+          <article class="card">
+
+            <h3 class="metric-number">40+</h3>
+
+            <h4 class="metric-title">
+              Automations &
+              Improvements
+            </h4>
+
+            <p>
+              Implemented across accounting,
+              reporting, validation,
+              reconciliation, and operational
+              workflows.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3 class="metric-number">120+</h3>
+
+            <h4 class="metric-title">
+              Documentation &
+              SOPs
+            </h4>
+
+            <p>
+              Pages of procedures, training
+              materials, process guides,
+              and technical documentation
+              authored and maintained.
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <h3 class="metric-number">30+</h3>
+
+            <h4 class="metric-title">
+              BlackLine
+              Reconciliations
+            </h4>
+
+            <p>
+              Supporting financial controls,
+              governance, compliance,
+              and audit readiness.
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <h3 class="metric-number">5+</h3>
+
+            <h4 class="metric-title">
+              Years of Analytics &
+              Systems Experience
+            </h4>
+
+            <p>
+              Applying accounting, analytics,
+              automation, and business
+              systems expertise.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section reveal" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="about-title">Professional Profile</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+
+            <p>
+              My background is in accounting and finance, but I've always been drawn
+              to the technical side of the business. Over time I found myself building
+              reports, automations, and process improvements that helped teams work
+              more efficiently and make better use of their data.
+            </p>
+
+            <p>
+              My experience spans financial reporting,
+              month-end close, account reconciliations,
+              advanced Excel development, Power Query,
+              reporting automation, business intelligence,
+              data architecture, and enterprise workflow automation.
+            </p>
+
+            <p>
+              I am particularly interested in Financial Systems Analyst, Business
+              Systems Analyst, Financial Data Analyst, and Process Improvement roles
+              where accounting knowledge and technical expertise intersect.
+            </p>
+
+          </div>
+          <div class="focus-list">
+            <div class="focus-item">
+              <div class="focus-icon"><svg class="icon" aria-hidden="true">
+                  <use href="#i-chart" />
+                </svg></div>
+              <div>
+                <h3>Financial Systems & Reporting</h3>
+
+                <p>
+                  Designing scalable reporting frameworks, financial analytics
+                  solutions, validation controls, and executive reporting systems.
+                </p>
+              </div>
+            </div>
+            <div class="focus-item">
+              <div class="focus-icon"><svg class="icon" aria-hidden="true">
+                  <use href="#i-terminal" />
+                </svg></div>
+              <div>
+                <h3>Process Automation</h3>
+
+                <p>
+                  Automating accounting, reporting, and operational workflows
+                  using Power Query, VBA, SQL, PowerShell, and Microsoft technologies.
+                </p>
+
+              </div>
+            </div>
+            <div class="focus-item">
+              <div class="focus-icon"><svg class="icon" aria-hidden="true">
+                  <use href="#i-database" />
+                </svg></div>
+              <div>
+                <h3>Business Analysis</h3>
+
+                <p>
+                  Analyzing business processes, identifying improvement
+                  opportunities, and translating requirements into sustainable
+                  technology solutions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+
+        <div class="section-head">
+          <h2 id="skills-title">Core Competencies</h2>
+          <p>
+            A combination of accounting, finance, business analysis,
+            analytics, automation, and technology skills used to
+            improve processes, reporting, and decision making.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="card">
+            <h3>Data & Analytics</h3>
+
+            <ul class="badges">
+              <li class="badge">SQL</li>
+              <li class="badge">Oracle</li>
+              <li class="badge">DB2</li>
+              <li class="badge">Power BI</li>
+              <li class="badge">Power Query</li>
+              <li class="badge">Advanced Excel</li>
+              <li class="badge">Power Pivot</li>
+              <li class="badge">Data Modeling</li>
+
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Automation</h3>
+
+            <ul class="badges">
+              <li class="badge">Power Automate</li>
+              <li class="badge">VBA</li>
+              <li class="badge">PowerShell</li>
+              <li class="badge">Python</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Enterprise Systems</h3>
+
+            <ul class="badges">
+              <li class="badge">ERP Systems</li>
+              <li class="badge">SAP</li>
+              <li class="badge">Oracle</li>
+              <li class="badge">Microsoft 365</li>
+              <li class="badge">Copilot Studio</li>
+            </ul>
+          </article>
+
+          <article class="card">
+
+            <h3>Finance & Accounting</h3>
+
+            <ul class="badges">
+
+              <li class="badge">Financial Reporting</li>
+
+              <li class="badge">Month-End Close</li>
+
+              <li class="badge">BlackLine</li>
+
+              <li class="badge">Variance Analysis</li>
+
+              <li class="badge">Excel Power User</li>
+
+              <li class="badge">Financial Modeling</li>
+
+              <li class="badge">SOX Controls</li>
+
+              <li class="badge">Reconciliations</li>
+
+            </ul>
+
+          </article>
+
+          <article class="card">
+
+            <h3>Business Analysis</h3>
+
+            <ul class="badges">
+
+              <li class="badge">Requirements Gathering</li>
+
+              <li class="badge">Process Mapping</li>
+
+              <li class="badge">Root Cause Analysis</li>
+
+              <li class="badge">Documentation</li>
+
+              <li class="badge">Stakeholder Management</li>
+
+              <li class="badge">Process Improvement</li>
+
+            </ul>
+
+          </article>
+
+          <article class="card">
+
+            <h3>Financial Systems</h3>
+
+            <ul class="badges">
+
+              <li class="badge">BlackLine</li>
+
+              <li class="badge">Revenue Recognition</li>
+
+              <li class="badge">SOX Controls</li>
+
+              <li class="badge">Month-End Close</li>
+
+              <li class="badge">Financial Reporting</li>
+
+              <li class="badge">Process Controls</li>
+
+            </ul>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section reveal" id="projects" aria-labelledby="projects-title" style="padding-top:0;">
+
+      <div class="container">
+
+        <div class="section-head">
+          <h2 id="projects-title">Featured Projects</h2>
+
+          <p>
+            Examples of financial systems modernization, analytics,
+            process automation, reporting architecture, and business
+            transformation initiatives delivered across accounting,
+            manufacturing, operations, and enterprise reporting environments.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="card">
+
+            <div class="card-top">
+              <span class="card-tag">Financial Systems</span>
+            </div>
+
+            <h3>Manufacturing Financial Reporting Modernization</h3>
+
+            <p>
+              Redesigned legacy accounting and manufacturing reporting
+              processes into centralized Power Query and SQL-driven
+              reporting architectures with built-in validation controls,
+              automated refresh logic, exception monitoring, fiscal YTD
+              reporting, and self-service analytics capabilities.
+            </p>
+
+            <ul class="badges">
+              <li class="badge">Accounting</li>
+              <li class="badge">Power Query</li>
+              <li class="badge">SQL</li>
+              <li class="badge">DB2</li>
+              <li class="badge">Data Modeling</li>
+            </ul>
+
+          </article>
+
+          <article class="card">
+
+            <div class="card-top">
+              <span class="card-tag">Artificial Intelligence</span>
+            </div>
+
+            <h3>Enterprise AI Knowledge Platform</h3>
+
+            <p>
+              Designed and deployed a Microsoft Copilot knowledge platform
+              trained on accounting procedures, SOPs, reporting logic,
+              operational processes, and technical documentation. Built a
+              continuously expanding knowledge base that enables teams to
+              quickly locate and utilize institutional knowledge through
+              natural-language interaction.
+            </p>
+
+            <ul class="badges">
+              <li class="badge">Copilot Studio</li>
+              <li class="badge">AI</li>
+              <li class="badge">SharePoint</li>
+              <li class="badge">Microsoft 365</li>
+              <li class="badge">Knowledge Management</li>
+            </ul>
+
+          </article>
+
+          <article class="card">
+
+            <div class="card-top">
+              <span class="card-tag">Automation</span>
+            </div>
+
+            <h3>Month-End Close Automation & Reporting Pipelines</h3>
+
+            <p>
+              Developed automated reporting frameworks that perform data
+              extraction, validation, report generation, email
+              distribution, archival, exception monitoring, and control
+              verification while improving auditability, governance,
+              accuracy, and reporting efficiency across accounting and
+              finance processes.
+            </p>
+
+            <ul class="badges">
+              <li class="badge">VBA</li>
+              <li class="badge">PowerShell</li>
+              <li class="badge">Power BI</li>
+              <li class="badge">Automation</li>
+              <li class="badge">Finance</li>
+            </ul>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section reveal" id="experience" aria-labelledby="experience-title" style="padding-top:0;">
+
+      <div class="container">
+
+        <div class="section-head">
+          <h2 id="experience-title">Experience</h2>
+
+          <p>
+            Accounting, financial systems, reporting automation,
+            analytics, and process improvement experience across
+            manufacturing, utilities, and operations environments.
+          </p>
+        </div>
+
+        <ol class="timeline" style="list-style:none;margin:0;">
+
+          <li class="timeline-item">
+
+            <div class="timeline-date">
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-calendar" />
+              </svg>
+              Aug 2025 – Present
+            </div>
+
+            <div class="timeline-body">
+
+              <h3>Accountant</h3>
+
+              <p class="timeline-org">
+                Archer Daniels Midland (ADM)
+              </p>
+
+              <p class="scope">
+                Lead financial reporting, account reconciliation,
+                revenue recognition, and month-end close activities
+                while supporting financial controls, reporting
+                governance, audit readiness, and operational decision
+                making within a large-scale manufacturing environment.
+              </p>
+
+              <p class="scope" style="margin-top:12px;">
+                Designed enterprise reporting architectures, automated
+                reporting pipelines, Microsoft Copilot knowledge solutions,
+                financial data validation controls, and workflow automation
+                frameworks supporting accounting, procurement,
+                manufacturing, operations, and supply chain teams.
+              </p>
+
+              <p class="scope" style="margin-top:12px;">
+
+                Built advanced Excel-based reporting solutions,
+                Power Query data models, automation frameworks,
+                dashboard tools, and validation controls used in
+                accounting and financial reporting processes.
+
+              </p>
+
+              <ul class="badges">
+
+                <li class="badge">Financial Reporting</li>
+                <li class="badge">BlackLine</li>
+                <li class="badge">Power Query</li>
+                <li class="badge">SQL</li>
+                <li class="badge">Automation</li>
+
+              </ul>
+
+            </div>
+
+          </li>
+
+          <li class="timeline-item">
+
+            <div class="timeline-date">
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-calendar" />
+              </svg>
+              May 2025 – Jul 2025
+            </div>
+
+            <div class="timeline-body">
+
+              <h3>Electric Operations Data Analyst</h3>
+
+              <p class="timeline-org">
+                Illinois Municipal Electric Agency
+              </p>
+
+              <p class="scope">
+                Built advanced Excel models, forecasting tools, KPI
+                dashboards, and executive reporting solutions used to
+                support energy purchasing decisions, utility operations,
+                strategic planning, and operational performance monitoring.
+              </p>
+              <p class="scope" style="margin-top:12px;">
+
+                Analyzed system load data, energy market activity,
+                and generation performance to identify trends,
+                improve reporting accuracy, support regulatory
+                compliance, and provide decision-making insights
+                for operations and executive leadership teams.
+
+              </p>
+              </p>
+
+              <ul class="badges">
+
+                <li class="badge">Advanced Excel</li>
+                <li class="badge">Forecasting</li>
+                <li class="badge">KPI Reporting</li>
+                <li class="badge">Data Analysis</li>
+                <li class="badge">Regulatory Reporting</li>
+                <li class="badge">Power BI</li>
+
+              </ul>
+
+            </div>
+
+          </li>
+
+          <li class="timeline-item">
+
+            <div class="timeline-date">
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-calendar" />
+              </svg>
+              2024 – 2025
+            </div>
+
+            <div class="timeline-body">
+
+              <h3>Business Operations Intern</h3>
+
+              <p class="timeline-org">
+                Randall Residence
+              </p>
+
+              <p class="scope">
+                Supported accounting, business operations, and
+                administration through financial analysis,
+                reporting, forecasting, process improvement,
+                payroll support, and operational reporting
+                initiatives.
+              </p>
+
+              <p class="scope" style="margin-top:12px;">
+                Developed Excel-based forecasting models,
+                analyzed facility accounts, improved records
+                management processes, supported employee
+                onboarding and compliance documentation,
+                and created dashboards and reporting tools
+                used for operational decision making.
+              </p>
+
+              <ul class="badges">
+
+                <li class="badge">Advanced Excel</li>
+                <li class="badge">Forecasting</li>
+                <li class="badge">Financial Analysis</li>
+                <li class="badge">Reporting</li>
+                <li class="badge">Process Improvement</li>
+                <li class="badge">Payroll Support</li>
+
+              </ul>
+
+            </div>
+
+          </li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="contact reveal" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="contact-inner">
+        <h2 id="contact-title">Let’s build something useful</h2>
+        <p>I enjoy solving complex problems through accounting,
+          finance, analytics, automation, and business systems.
+          Let's connect.</p>
+        <div class="contact-actions">
+          <a href="mailto:griffinb.inbox@gmail.com" class="btn btn-primary">
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-mail" />
+            </svg>
+            griffinb.inbox@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/griffinbollinger" class="btn btn-ghost" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-linkedin" />
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bar">
+        <p>© 2026 Griffin. All rights reserved.</p>
+        <div class="footer-links">
+          <a class="social" href="https://www.linkedin.com/in/griffinbollinger" target="_blank"
+            rel="noopener noreferrer" aria-label="Griffin on LinkedIn">
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-linkedin" />
+            </svg>
+          </a>
+          <a class="social" href="mailto:griffinb.inbox@gmail.com" aria-label="Email Griffin">
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-mail" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+
+      });
+
+    }, { threshold: 0.15 });
+
+    reveals.forEach(item => {
+      observer.observe(item);
+    });
+
+  </script>
+</body>
+
+</html>
